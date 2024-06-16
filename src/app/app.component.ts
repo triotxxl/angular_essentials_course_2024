@@ -14,4 +14,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {}
 
   users = DUMMY_USERS;
+
+  onSelectUser(id: string) {
+    console.log("selected user", id);
+  }
 }

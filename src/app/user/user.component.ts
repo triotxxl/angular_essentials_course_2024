@@ -5,6 +5,7 @@ import {
   Output,
   computed,
   input,
+  output
 } from '@angular/core';
 
 @Component({
@@ -18,7 +19,8 @@ export class UserComponent {
   @Input({ required: true }) id!: string;
   @Input({ required: true }) avatar!: string;
   @Input({ required: true }) name!: string;
-  @Output() select = new EventEmitter();
+  @Output() select = new EventEmitter(); // Angular old way of doing it
+  // select = output<string>() // Angular 16 way of doing it
 
   // avatar = input<string>()
   // avatar = input.required()

@@ -8,6 +8,20 @@ import {
   output,
 } from '@angular/core';
 
+// interface User
+// type User = {
+//   id: string;
+//   avatar: string;
+//   name: string;
+// };
+
+// interface User
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -19,11 +33,7 @@ export class UserComponent {
   // @Input({ required: true }) id!: string;
   // @Input({ required: true }) avatar!: string;
   // @Input({ required: true }) name!: string;
-  @Input({ required: true }) user!: {
-    id: string;
-    avatar: string;
-    name: string;
-  };
+  @Input({ required: true }) user!: User;
   @Output() select = new EventEmitter(); // Angular old way of doing it
   // select = output<string>() // Angular 16 way of doing it
 

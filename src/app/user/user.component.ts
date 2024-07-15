@@ -5,7 +5,7 @@ import {
   Output,
   computed,
   input,
-  output
+  output,
 } from '@angular/core';
 
 @Component({
@@ -16,9 +16,14 @@ import {
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  // @Input({ required: true }) id!: string;
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: {
+    id: string;
+    avatar: string;
+    name: string;
+  };
   @Output() select = new EventEmitter(); // Angular old way of doing it
   // select = output<string>() // Angular 16 way of doing it
 
@@ -27,13 +32,13 @@ export class UserComponent {
   // name = input.required()
 
   get imagePath() {
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   // imagePath = computed(()=> {
   //   return 'assets/users/' + this.avatar()
   // })
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }

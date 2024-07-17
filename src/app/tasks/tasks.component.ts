@@ -10,8 +10,8 @@ import { TaskComponent } from './task/task.component';
 })
 export class TasksComponent {
   // @Input() name: string | undefined = ''; // longer
-@Input({required: true}) userId: string = '';
-@Input({required: true}) name: string = '';
+  @Input({ required: true }) userId: string = '';
+  @Input({ required: true }) name: string = '';
 
   tasks = [
     {
@@ -29,20 +29,25 @@ export class TasksComponent {
       dueDate: '2022-12-31',
     },
     {
-      id: 't2',
+      id: 't3',
       userId: 'u2',
       title: 'Learn Angular Material',
       summary: 'Learn the basics of Angular Material',
       dueDate: '2022-12-31',
     },
     {
-      id: 't3',
+      id: 't4',
       userId: 'u3',
       title: 'Learn Angular CLI',
       summary: 'Learn the basics of Angular CLI',
       dueDate: '2022-12-31',
     },
   ];
+
+  onCompleteTask(id: string) {
+    console.log('Complete task', id);
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
 
   get selectedUserTastks() {
     return this.tasks.filter((task) => task.userId === this.userId);

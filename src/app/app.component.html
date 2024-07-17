@@ -25,5 +25,11 @@
     </li> -->
   </ul>
   <!-- ?. means if it exists, else undefined -->
-  <app-tasks [name]="selectedUser?.name" />
+
+  <!-- <app-tasks *ngIf="selectedUser" [name]="selectedUser?.name" /> -->
+  @if (selectedUser) {
+  <app-tasks [userId]="selectedUser!.id" [name]="selectedUser!.name" />
+  } @else{
+  <p>Please select a user</p>
+  }
 </main>

@@ -1,7 +1,14 @@
 <app-header></app-header>
 <main>
   <ul id="users">
-    <li>
+
+    <li *ngFor="let user of users; let i = index">
+      <app-user [user]="user" (select)="onSelectUser($event)"> </app-user>
+    </li>
+
+
+
+    <!-- <li>
       <app-user [user]="users[0]" (select)="onSelectUser($event)"> </app-user>
     </li>
     <li>
@@ -12,7 +19,7 @@
     </li>
     <li>
       <app-user [user]="users[3]" (select)="onSelectUser($event)"> </app-user>
-    </li>
+    </li> -->
   </ul>
   <!-- ?. means if it exists, else undefined -->
   <app-tasks [name]="selectedUser?.name" />

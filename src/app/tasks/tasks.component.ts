@@ -12,6 +12,7 @@ export class TasksComponent {
   // @Input() name: string | undefined = ''; // longer
 @Input({required: true}) userId: string = '';
 @Input({required: true}) name: string = '';
+
   tasks = [
     {
       id: 't1',

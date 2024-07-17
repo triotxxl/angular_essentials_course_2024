@@ -31,6 +31,7 @@ export class UserComponent {
   // @Input({ required: true }) avatar!: string;
   // @Input({ required: true }) name!: string;
   @Input({ required: true }) user!: User;
+  @Input({required: true}) selected!: boolean;
   @Output() select = new EventEmitter(); // Angular old way of doing it
   // select = output<string>() // Angular 16 way of doing it
 

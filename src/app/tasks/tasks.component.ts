@@ -25,16 +25,8 @@ export class TasksComponent {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
+  onCloseAddTask() {
     this.isAddingTask = false;
-  }
-
-  onAddTask(taskData: NewTaskData) {
-    // use unshift for adding it in the beginning
-
-    this.tasksService.addTask(taskData, this.userId);
-
-    this.onCancelAddTask();
   }
 
   get selectedUserTastks() {

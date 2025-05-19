@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -7,12 +7,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.css',
 })
-export class ServerStatusComponent {
+export class ServerStatusComponent implements OnInit {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
   rnd = Math.random();
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit() {
     if (this.rnd > 0.5) {
       this.currentStatus = 'online';
     } else if (this.rnd < 0.9) {

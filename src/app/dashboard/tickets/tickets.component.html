@@ -12,7 +12,7 @@
 
     <ng-container *ngIf="tickets.length > 0; else noTickets">
       <li *ngFor="let ticket of tickets; trackBy: trackById">
-        <app-ticket [data]="ticket" />
+        <app-ticket [data]="ticket" (close)="onCloseTicket(ticket.id)" />
       </li>
     </ng-container>
     <ng-template #noTickets>

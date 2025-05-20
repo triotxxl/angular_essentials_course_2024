@@ -15,8 +15,8 @@ export class TicketsComponent {
   tickets: Ticket[] = [];
 
   trackById(index: number, ticket: any): any {
-  return ticket.id;
-}
+    return ticket.id;
+  }
 
   onAdd(ticketData: { title: string; text: string }) {
     const ticket: Ticket = {
@@ -27,5 +27,16 @@ export class TicketsComponent {
     };
 
     this.tickets.push(ticket);
+  }
+
+  onCloseTicket(id: string) {
+    this.tickets = this.tickets.map((ticket) => {
+      if (ticket.id === id)
+        return {
+          ...ticket,
+          status: 'closed',
+        };
+      return ticket;
+    });
   }
 }
